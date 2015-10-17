@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+		<script type='text/javascript' src='http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2'></script>
+		
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="Adams_JS/GVIS.css" />
+	</head>
+	<body>
+	
+	<div id="cover"></div>
+
+	<div id="base">
+	
+	<div class="dropdown">
+		<p id ="maptitle">Kansas City Metro Area<br/>
+		<input type="text" id="admin" readonly></p>
+		<p id ="subtitle">Status of Schools between 2003 and 2012</p>
+		<div id = "work"><select name="var2" id="var2">
+			<option value = "D01" selected="selected">Population Density (per sq. KM)</option>
+			<option value = "D02">Male Population</option>
+			<option value = "D03">Female Population</option>
+			<option value = "D04">Median Age</option>
+			<option value = "D05">Percent of Population Under 18</option>
+			<option value = "D06">Percent White</option>
+			<option value = "D07">Single Mother Households</option>
+			<option value = "D08">Owner Vacancy Rate</option>
+			<option value = "D09">Percent Rented Households</option>
+		</select></div><br/>
+		<div id = "try"><select name="var1" id="var1"></select></div>
+<div id = "scrollfield"><table id = "legend">
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color:rgba(38, 92, 79,.7);"></div></td>
+		<td><input type="text" id="leg7" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color:rgba(62, 114, 101,.7);"></div></td>
+		<td><input type="text" id="leg6" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td><input type="text" id="leg17" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(7, 56, 0,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color:rgba(79, 135, 122,.7);"></div></td>
+		<td><input type="text" id="leg5" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td><input type="text" id="leg16" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(29, 77, 22,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color:rgba(107, 163, 150,.7);"></div></td>
+		<td><input type="text" id="leg4" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td><input type="text" id="leg15" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(44, 101, 35,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color:rgba(137, 189, 177,.7);"></div></td>
+		<td><input type="text" id="leg3" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td><input type="text" id="leg14" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(58, 126, 47,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color:rgba(174, 208, 200,.7);"></div></td>
+		<td><input type="text" id="leg2" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td><input type="text" id="leg13" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(83, 154, 72,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #fff;background-color: rgba(203, 231, 225,.7);"></div></td>
+		<td><input type="text" id="leg1" readonly style="border:0; background-color:#f6f6f6; color:#696969; width: 100px;"></td>
+		<td><input type="text" id="leg12" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(125, 189, 115,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td><div style="width:45px;height:30px;border:1px solid #aaa;background-color:rgba(255,255,255,0);"></div></td>
+		<td><input type="text" id="leg0" value = "No Data" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px;"></td>
+		<td><input type="text" id="leg11" readonly style="border:0; background-color:#f6f6f6; color:#696969; width: 105px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #fff;background-color:rgba(154, 221, 144,.7);border-radius:30px"></div></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td><input type="text" id="leg00" value = "No Data" readonly style="border:0; background-color:#f6f6f6; color:#696969;width: 100px; text-align: right;"></td>
+		<td><div style="width:30px;height:30px;border:1px solid #aaa;background-color:rgba(255,255,255,0);border-radius:30px"></div></td>
+	</tr>
+</table>
+<div id="sources">Sybil Adams | GVisTemp | 15.01.15<br/><i>Geodata:</i> US Census Tiger Shapefiles 2012; <i>Demographic Data:</i> US Census American Community Survey; US Department of Education National Center for Education Statistics; Kansas State Department of Education</div></div>
+
+</div>
+</div>
+		
+	<div class = "slider" id="slide">
+		<p id = "textbar">
+			<label style="border:0; background-color:#f6f6f6; color:#696969; font-weight:bold;" for="amount">School Year: </label>
+			<input type="text" id="amount" readonly style="border:0; background-color:#f6f6f6; color:#696969; font-weight:bold;">
+		</p>
+		<div class = "bar">
+			<div class = "slidebar" id="slider"></div>
+		</div>
+	</div>
+
+		<script type='text/javascript' src='Adams_JS/school.js'></script>
+		<script type='text/javascript' src='Adams_JS/tract.js'></script>
+		<script type='text/javascript' src='Adams_JS/district.js'></script>
+		<script type='text/javascript' src='Adams_JS/county.js'></script>
+		<script type='text/javascript' src='Adams_JS/district2.js'></script>
+		<script type='text/javascript' src='Adams_JS/county2.js'></script>
+		<script type='text/javascript' src='Adams_JS/breaks.js'></script>
+		<script type='text/javascript' src='Adams_JS/GVIS.js'></script>
+		
+	</body>
+</html>
